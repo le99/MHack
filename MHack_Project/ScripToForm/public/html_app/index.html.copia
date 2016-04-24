@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--
+    <link rel="icon" href="../../favicon.ico">
+    -->
+    <title>HTML App</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/assets/libs/bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <!--
+    <link href="starter-template.css" rel="stylesheet">
+    -->
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">App Inventario **** </a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Bodegas</a></li>
+            <li><a href="#about">Productos</a></li>
+            <li><a href="#contact">SaldoBodegas</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <button class="btn btn-success pull-right">
+                <span class="glyphicon glyphicon-plus"></span> Crear
+              </button>
+              <h4>Bodegas</h4>
+            </div>
+            <div class="table-responsive" id = "datos" >
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>id</th>
+                    <th>Nombre</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a>1</a></td>
+                    <td>Bodega 1</td>
+                    <td>
+                      <div class="btn-group">
+                        <button class="btn btn-primary">
+                          <span class="glyphicon glyphicon-edit"></span>
+                        </button>
+                        <button class="btn btn-danger">
+                          <span class="glyphicon glyphicon-remove"></span>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a>1</a></td>
+                    <td>Bodega 1</td>
+                    <td>
+                      <div class="btn-group">
+                        <button class="btn btn-primary">
+                          <span class="glyphicon glyphicon-edit"></span>
+                        </button>
+                        <button class="btn btn-danger">
+                          <span class="glyphicon glyphicon-remove"></span>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 starter-template">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4>Detalles Bodega</h4>
+            </div>
+            <div class="panel-body">
+              <form class="form-horizontal">
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label">Id</label>
+                  <div class="col-sm-10">
+                    <input type="email" class="form-control" id="inputEmail3" placeholder="Id" value="1" disabled>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputPassword3" class="col-sm-2 control-label">Nombre</label>
+                  <div class="col-sm-10">
+                    <input type="password" class="form-control" id="inputPassword3" placeholder="Nombre">
+                  </div>
+                </div>
+
+
+
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <div class="btn-group pull-right">
+                      <button class="btn btn-success" data-toggle="modal" data-target="#myModal">
+                        <span class="glyphicon glyphicon-plus"></span> Agregar
+                      </button>
+                    </div>
+                    <h4>Saldo Bodega</h4>
+                  </div>
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>id</th>
+                          <th>Codigo</th>
+                          <th>Producto</th>
+                          <th>Cantidad</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><a>2</a></td>
+                          <td>S1</td>
+                          <td>P1</td>
+                          <td>15</td>
+                          <td>
+                            <button class="btn btn-danger">
+                              <span class="glyphicon glyphicon-remove"></span>
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><a>2</a></td>
+                          <td>S1</td>
+                          <td>P1</td>
+                          <td>15</td>
+                          <td>
+                            <button class="btn btn-danger">
+                              <span class="glyphicon glyphicon-remove"></span>
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                </div>
+
+
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Guardar</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+
+    </div><!-- /.container -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Seleccionar Saldo Bodega</h4>
+          </div>
+          <div class="modal-body">
+            <select class="form-control">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary">Agregar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/assets/libs/jQuery/jquery-2.2.2.min.js"></script>
+    <script src="/assets/libs/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+    <script src="/assets/html_app/bodegas/bodegas.controller.js"></script>
+
+  </body>
+</html>

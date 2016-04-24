@@ -12,6 +12,11 @@
 	//var tClassPath:Template:= TemplateFactory.load('createClassPath.egl');
 	//tClassPath.generate('.classpath');
 	
+	//var file = (new Native("java.nio.file.Files")).copy("main.egl", "testCopy.egl");
+	//file.copy("main.egl", "testCopy.egl");
+	
+	
+	
 	
 	"ok".println();
 	
