@@ -1,0 +1,5 @@
+rule SQL2Play 
+	transform s : sql!Model
+	to app : play!App {
+		app.name = "myApp";
+	}
