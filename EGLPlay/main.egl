@@ -13,7 +13,7 @@
 	if(root.angularApp <> null){
 		var appjs:Template:= TemplateFactory.load('angularFront/appjs.egl');
 		appjs.populate('app', root.angularApp);
-		appjs.generate('./public/angular_app/app2.js');
+		appjs.generate('./public/angular_app/app.js');
 	}
 	
 	

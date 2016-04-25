@@ -1,15 +1,16 @@
 (function(){
 
-  angular.module('invApp', ['ngRoute']);
+  angular.module('invApp', ['ngRoute', 'ui.bootstrap']);
 
   function config ($routeProvider, $locationProvider){
     $routeProvider
 [%
 	for(page in app.pages){
+		var resourceName = page.resource.name.firstToLowerCase;
 %]
       .when('[%= page.route%]', {
-        templateUrl: '/assets/angular_app/bodegas/bodegas.view.html',
-        controller: 'bodegaCtrl',
+        templateUrl: '/assets/angular_app/[%= resourceName%]/[%= resourceName%].view.html',
+        controller: '[%= resourceName%]Ctrl',
         controllerAs: 'vm'
       })
 [%

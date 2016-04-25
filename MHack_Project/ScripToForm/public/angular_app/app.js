@@ -4,22 +4,22 @@
 
   function config ($routeProvider, $locationProvider){
     $routeProvider
-      .when('/bodegas', {
-        templateUrl: '/assets/angular_app/bodegas/bodegas.view.html',
+      .when('/Bodega', {
+        templateUrl: '/assets/angular_app/bodega/bodega.view.html',
         controller: 'bodegaCtrl',
         controllerAs: 'vm'
       })
-      .when('/productos', {
-        templateUrl: '/assets/angular_app/productos/productos.view.html',
+      .when('/Producto', {
+        templateUrl: '/assets/angular_app/producto/producto.view.html',
         controller: 'productoCtrl',
         controllerAs: 'vm'
       })
-      .when('/saldobodegas', {
-        templateUrl: '/assets/angular_app/saldobodega/saldobodega.view.html',
+      .when('/SaldoBodega', {
+        templateUrl: '/assets/angular_app/saldoBodega/saldoBodega.view.html',
         controller: 'saldoBodegaCtrl',
         controllerAs: 'vm'
       })
-      .otherwise({redirectTo: '/bodegas'});
+      .otherwise({redirectTo: '/Bodega'});
 
     /*
     $locationProvider.html5Mode({
