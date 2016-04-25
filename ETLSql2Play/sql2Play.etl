@@ -12,6 +12,7 @@ rule SQL2Play
 		
 		db.setResourceRealationships(resources);
 		
+		app.setAngularFront();
 		
 	}
 	
@@ -22,6 +23,7 @@ operation sql!Database getResources(): List{
 		
 		var r = new play!Resource();
 		r.name = t.name;
+		r.url = "/api/" + t.name;
 		
 		//Primary key
 		var mPk = t.getPKVars();
@@ -87,6 +89,16 @@ operation sql!Database setResourceRealationships(resources){
 	}
 }
 
+
+operation play!App setAngularFront(){
+	self.angularApp = new play!AngularApp();
+	for(r in self.backend.resources){
+		var page = new play!AngularPage();
+		page.route = '/' + r.name;
+		page.resource = r;
+		self.angularApp.pages.add(page);	
+	}
+}
 
 operation geResourceByName(inName, resources): play!Resource{
 	return resources.select(c | c.name == inName).at(0);

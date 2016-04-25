@@ -4,7 +4,9 @@
 	TemplateFactory.setOutputRoot("../MHack_Project/ScripToForm");
 	
 	var routes:Template:= TemplateFactory.load('backend/routes.egl');
-	routes.generate('conf/routes2');
+	//routes.generate('conf/routes2');
+	
+	
 	
 	//var tPersistance:Template:= TemplateFactory.load('createPesistanceXML.egl');
 	//tPersistance.generate('./src/META-INF/persistence.xml');

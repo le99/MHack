@@ -21,13 +21,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AngularApp">
     <eStructuralFeatures xsi:type="ecore:EReference" name="pages" upperBound="-1"
-        eType="#//AngularPage"/>
+        eType="#//AngularPage" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AngularPage">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="route" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="resource" eType="#//Resource"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="subResource" upperBound="-1"
-        eType="#//Resource"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Type">
     <eLiterals name="String" literal="String"/>
