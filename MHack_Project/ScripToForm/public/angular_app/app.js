@@ -1,6 +1,6 @@
 (function(){
 
-  angular.module('invApp', ['ngRoute']);
+  angular.module('invApp', ['ngRoute', 'ui.bootstrap']);
 
   function config ($routeProvider, $locationProvider){
     $routeProvider
