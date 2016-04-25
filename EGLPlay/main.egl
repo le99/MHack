@@ -18,6 +18,10 @@
 		var navigationTemplate:Template:= TemplateFactory.load('angularFront/navigationTemplate.egl');
 		navigationTemplate.populate('app', root.angularApp);
 		navigationTemplate.generate('./public/angular_app/common/navigation/navigation.template.html');
+		
+		var invDataServices:Template:= TemplateFactory.load('angularFront/invDataServices.egl');
+		invDataServices.populate('app', root.angularApp);
+		invDataServices.generate('./public/angular_app/common/services/invData.services.js');
 	}
 	
 	

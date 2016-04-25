@@ -2,16 +2,16 @@
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:playApp="http://www.example.org/playApp">
   <playApp:App name="myApp" angularApp="/1">
     <backend>
-      <resources name="Bodega" url="/api/Bodega">
+      <resources name="Bodega" url="/api/Bodega/">
         <atributes xsi:type="playApp:PKAtribute" name="id" type="int"/>
         <atributes xsi:type="playApp:SimpleAtribute" name="nombre"/>
       </resources>
-      <resources name="Producto" url="/api/Producto">
+      <resources name="Producto" url="/api/Producto/">
         <atributes xsi:type="playApp:PKAtribute" name="id" type="int"/>
         <atributes xsi:type="playApp:SimpleAtribute" name="descripcion"/>
         <atributes xsi:type="playApp:SimpleAtribute" name="nombre"/>
       </resources>
-      <resources name="SaldoBodega" url="/api/SaldoBodega">
+      <resources name="SaldoBodega" url="/api/SaldoBodega/">
         <atributes xsi:type="playApp:PKAtribute" name="id" type="int"/>
         <atributes xsi:type="playApp:SimpleAtribute" name="cantidad" type="int"/>
         <atributes xsi:type="playApp:RefAtribute" name="producto" type="int" ref="/0/@backend/@resources.1"/>

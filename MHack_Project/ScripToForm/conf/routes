@@ -5,11 +5,11 @@
 #------------------------------------------
 # Bodega
 
-GET         /api/bodega/            controllers.implementacion.BodegasController.getBodegas()
-GET         /api/bodega/:idBodega   controllers.implementacion.BodegasController.getBodegaById(idBodega : Long)
-POST        /api/bodega/            controllers.implementacion.BodegasController.save()
-PUT         /api/bodega/:id         controllers.implementacion.BodegasController.update(id: Long)
-DELETE      /api/bodega/:idBodega   controllers.implementacion.BodegasController.delete(idBodega : Long)
+GET         /api/Bodega/            controllers.implementacion.BodegasController.getBodegas()
+GET         /api/Bodega/:idBodega   controllers.implementacion.BodegasController.getBodegaById(idBodega : Long)
+POST        /api/Bodega/            controllers.implementacion.BodegasController.save()
+PUT         /api/Bodega/:id         controllers.implementacion.BodegasController.update(id: Long)
+DELETE      /api/Bodega/:idBodega   controllers.implementacion.BodegasController.delete(idBodega : Long)
 
 GET         /api/bodega/:idBodega/saldos/           controllers.implementacion.SaldoBodegasController.getSaldoBodegasByBodegaId(idBodega : Long)
 GET         /api/bodega/:idBodega/saldos/:idSaldo   controllers.implementacion.SaldoBodegasController.getSaldoBodegaById(idBodega :Long ,idSaldo : Long)
@@ -20,20 +20,20 @@ DELETE      /api/bodega/:idBodega/saldos/:idSaldo   controllers.implementacion.S
 #-------------------------------------------------
 # Producto
 
-GET         /api/producto/              controllers.implementacion.ProductosController.getProductos()
-GET         /api/producto/:idProducto   controllers.implementacion.ProductosController.getProductoById(idProducto : Long)
-POST        /api/producto/              controllers.implementacion.ProductosController.save()
-PUT         /api/producto/:idProducto              controllers.implementacion.ProductosController.update(idProducto: Long)
-DELETE      /api/producto/:idProducto   controllers.implementacion.ProductosController.delete(idProducto : Long)
+GET         /api/Producto/              controllers.implementacion.ProductosController.getProductos()
+GET         /api/Producto/:idProducto   controllers.implementacion.ProductosController.getProductoById(idProducto : Long)
+POST        /api/Producto/              controllers.implementacion.ProductosController.save()
+PUT         /api/Producto/:idProducto              controllers.implementacion.ProductosController.update(idProducto: Long)
+DELETE      /api/Producto/:idProducto   controllers.implementacion.ProductosController.delete(idProducto : Long)
 
 
 #---------------------------------------------------
 #Saldo bodega
-GET         /api/saldo/       controllers.implementacion.SaldoBodegasController.getSaldoBodegas()
-POST        /api/saldo/       controllers.implementacion.SaldoBodegasController.saveOne()
-GET         /api/saldo/:id       controllers.implementacion.SaldoBodegasController.getSaldoBodegaByIdOne(id: Long)
-PUT         /api/saldo/:id       controllers.implementacion.SaldoBodegasController.update(id: Long)
-DELETE      /api/saldo/:id    controllers.implementacion.SaldoBodegasController.deleteOne(id: Long)
+GET         /api/SaldoBodega/       controllers.implementacion.SaldoBodegasController.getSaldoBodegas()
+POST        /api/SaldoBodega/       controllers.implementacion.SaldoBodegasController.saveOne()
+GET         /api/SaldoBodega/:id       controllers.implementacion.SaldoBodegasController.getSaldoBodegaByIdOne(id: Long)
+PUT         /api/SaldoBodega/:id       controllers.implementacion.SaldoBodegasController.update(id: Long)
+DELETE      /api/SaldoBodega/:id    controllers.implementacion.SaldoBodegasController.deleteOne(id: Long)
 
 
 

@@ -23,7 +23,7 @@ operation sql!Database getResources(): List{
 		
 		var r = new play!Resource();
 		r.name = t.name;
-		r.url = "/api/" + t.name;
+		r.url = "/api/" + t.name + "/";
 		
 		//Primary key
 		var mPk = t.getPKVars();
