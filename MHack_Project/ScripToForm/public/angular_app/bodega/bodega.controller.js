@@ -17,7 +17,6 @@
     vm.addBodega = function(){
       vm.data.create = true;
       vm.data.detalle = {};
-      vm.data.saldos = [];
     };
 
     vm.editBodega = function(detalle){
@@ -25,10 +24,6 @@
       vm.data.detalle = {};
       vm.data.detalle.id = detalle.id;
       vm.data.detalle.nombre = detalle.nombre;
-
-      invData.getSaldosBodega(detalle.id, function(data){
-        vm.data.saldos = data;
-      });
 
     };
 
@@ -41,7 +36,6 @@
       });
 
       vm.data.detalle = {};
-      vm.data.saldos = [];
     };
 
     vm.updateBodega = function(){
@@ -58,7 +52,6 @@
       });
 
       vm.data.detalle = {};
-      vm.data.saldos = [];
     };
 
 
@@ -72,19 +65,6 @@
         }
       });
     };
-
-    vm.deleteSaldoBodega = function(id){
-      invData.deleteSaldoBodega(vm.data.detalle.id, id, function(){
-        for(var i = 0; i < vm.data.saldos.length; i++){
-          if(vm.data.saldos[i].id === id){
-            vm.data.saldos.splice(i, 1);
-            break;
-          }
-        }
-      });
-    };
-
-
   }
 
 })();
