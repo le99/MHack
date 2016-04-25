@@ -1,48 +1,83 @@
 (function(){
-
+[%
+	var resourceName = page.resource.name.firstToLowerCase;
+%]
   angular.module('invApp')
-    .controller('bodegaCtrl', bodegaCtrl);
+    .controller('[%= resourceName %]Ctrl', [%= resourceName %]Ctrl);
 
-  bodegaCtrl.$inject = ['invData'];
-  function bodegaCtrl(invData){
-    var vm = this;
-    vm.data = {};
+  [%= resourceName %]Ctrl.$inject = ['invData'];
+	function s[%= resourceName %]Ctrl(invData){
+  		var vm = this;
+  		vm.data = {};
+    
+		invData.get[%= page.resource.name%]s(function(data){
+      		vm.data.lista = data;
+    		});
 
-    invData.getBodegas(function(data){
-      vm.data.lista = data;
-    });
+[%
+	for(atribute in page.resource.atributes.select(a | a.isKindOf(play!RefAtribute))) {
+%]    
+		vm.data.selected[%= atribute.name.firstToUpperCase %]Option = {};
+    
+		invData.get[%= atribute.ref.name %]s(function(data){
+			vm.data.[%= atribute.name %]s = data;
+		});
+[%
+	}
+%]
 
     vm.data.create = true;
     vm.data.detalle = {};
-    vm.addBodega = function(){
-      vm.data.create = true;
-      vm.data.detalle = {};
+    
+    
+    vm.add[%= page.resource.name%] = function(){
+		vm.data.create = true;
+		vm.data.detalle = {};
+[%
+	for(atribute in page.resource.atributes.select(a | a.isKindOf(play!RefAtribute))) {
+%]    
+		vm.data.selected[%= atribute.name.firstToUpperCase %]Option = {};
+[%
+	}
+%]
     };
 
-    vm.editBodega = function(detalle){
+    vm.edit[%= page.resource.name%] = function(detalle){
       vm.data.create = false;
-      vm.data.detalle = {};
-      vm.data.detalle.id = detalle.id;
-      vm.data.detalle.nombre = detalle.nombre;
+      vm.data.detalle = angular.copy(detalle);
+      vm.data.selectedBodegaOption = _.find(vm.data.bodegas, function(data){
+        return data.id === vm.data.detalle.idBodega;
+      });
+
+      vm.data.selectedProductoOption = _.find(vm.data.productos, function(data){
+        return data.id === vm.data.detalle.idProducto;
+      });
 
     };
 
-    vm.crearBodega = function(){
+    vm.crear[%= page.resource.name%] = function(){
       vm.data.create = false;
       var detalle = angular.copy(vm.data.detalle);
+      detalle.idBodega = vm.data.selectedBodegaOption.id;
+      detalle.idProducto = vm.data.selectedProductoOption.id;
 
-      invData.addBodega(detalle, function(detalle){
+      invData.addSaldoBodega(detalle, function(detalle){
           vm.data.lista.push(detalle);
       });
 
       vm.data.detalle = {};
+      vm.data.selectedBodegaOption = {};
+      vm.data.selectedProductoOption = {};
     };
 
-    vm.updateBodega = function(){
+    vm.update[%= page.resource.name%] = function(){
       vm.data.create = false;
       var detalle = angular.copy(vm.data.detalle);
+      detalle.idBodega = vm.data.selectedBodegaOption.id;
+      detalle.idProducto = vm.data.selectedProductoOption.id;
 
-      invData.updateBodega(detalle, function(detalle){
+      invData.updateSaldoBodega(detalle, function(detalle){
+
         for(var i = 0; i < vm.data.lista.length; i++){
           if(vm.data.lista[i].id === detalle.id){
             vm.data.lista[i] = detalle;
@@ -52,11 +87,12 @@
       });
 
       vm.data.detalle = {};
+      vm.data.selectedBodegaOption = {};
+      vm.data.selectedProductoOption = {};
     };
 
-
-    vm.deleteBodega = function(id){
-      invData.deleteBodega(id, function(data){
+    vm.delete[%= page.resource.name%] = function(id){
+      invData.deleteSaldoBodega(id, function(data){
         for(var i = 0; i < vm.data.lista.length; i++){
           if(vm.data.lista[i].id === id){
             vm.data.lista.splice(i, 1);
@@ -65,6 +101,7 @@
         }
       });
     };
+
   }
 
 })();
