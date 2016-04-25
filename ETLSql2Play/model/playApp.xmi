@@ -1,32 +1,20 @@
 <?xml version="1.0" encoding="ASCII"?>
 <playApp:App xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:playApp="http://www.example.org/playApp" name="myApp">
   <backend>
-    <resources name="Client">
+    <resources name="Bodega">
       <atributes xsi:type="playApp:PKAtribute" name="id" type="int"/>
-      <atributes xsi:type="playApp:SimpleAtribute" name="password"/>
-      <atributes xsi:type="playApp:SimpleAtribute" name="name"/>
+      <atributes xsi:type="playApp:SimpleAtribute" name="nombre"/>
     </resources>
     <resources name="Producto">
       <atributes xsi:type="playApp:PKAtribute" name="id" type="int"/>
-      <atributes xsi:type="playApp:SimpleAtribute" name="name"/>
+      <atributes xsi:type="playApp:SimpleAtribute" name="descripcion"/>
+      <atributes xsi:type="playApp:SimpleAtribute" name="nombre"/>
     </resources>
-    <resources name="Carrito">
+    <resources name="SaldoBodega">
       <atributes xsi:type="playApp:PKAtribute" name="id" type="int"/>
-      <atributes xsi:type="playApp:SimpleAtribute" name="name"/>
-      <atributes xsi:type="playApp:RefAtribute" name="client" type="int" ref="//@backend/@resources.0"/>
-    </resources>
-    <resources name="Carritoitem">
-      <atributes xsi:type="playApp:PKAtribute" name="id" type="int"/>
-      <atributes xsi:type="playApp:SimpleAtribute" name="itemId" type="int"/>
-      <atributes xsi:type="playApp:SimpleAtribute" name="carritoId" type="int"/>
-      <atributes xsi:type="playApp:RefAtribute" name="item" type="int" ref="//@backend/@resources.4"/>
-      <atributes xsi:type="playApp:RefAtribute" name="carrito" type="int" ref="//@backend/@resources.2"/>
-    </resources>
-    <resources name="Item">
-      <atributes xsi:type="playApp:PKAtribute" name="id" type="int"/>
-      <atributes xsi:type="playApp:SimpleAtribute" name="name"/>
       <atributes xsi:type="playApp:SimpleAtribute" name="cantidad" type="int"/>
       <atributes xsi:type="playApp:RefAtribute" name="producto" type="int" ref="//@backend/@resources.1"/>
+      <atributes xsi:type="playApp:RefAtribute" name="bodega" type="int" ref="//@backend/@resources.0"/>
     </resources>
   </backend>
 </playApp:App>

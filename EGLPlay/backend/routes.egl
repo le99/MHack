@@ -1,0 +1,52 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+#------------------------------------------
+# Bodega
+
+GET         /api/bodega/            controllers.implementacion.BodegasController.getBodegas()
+GET         /api/bodega/:idBodega   controllers.implementacion.BodegasController.getBodegaById(idBodega : Long)
+POST        /api/bodega/            controllers.implementacion.BodegasController.save()
+PUT         /api/bodega/:id         controllers.implementacion.BodegasController.update(id: Long)
+DELETE      /api/bodega/:idBodega   controllers.implementacion.BodegasController.delete(idBodega : Long)
+
+GET         /api/bodega/:idBodega/saldos/           controllers.implementacion.SaldoBodegasController.getSaldoBodegasByBodegaId(idBodega : Long)
+GET         /api/bodega/:idBodega/saldos/:idSaldo   controllers.implementacion.SaldoBodegasController.getSaldoBodegaById(idBodega :Long ,idSaldo : Long)
+POST        /api/bodega/:idBodega/saldos/           controllers.implementacion.SaldoBodegasController.save(idBodega :Long)
+DELETE      /api/bodega/:idBodega/saldos/:idSaldo   controllers.implementacion.SaldoBodegasController.delete(idBodega :Long, idSaldo : Long)
+
+
+#-------------------------------------------------
+# Producto
+
+GET         /api/producto/              controllers.implementacion.ProductosController.getProductos()
+GET         /api/producto/:idProducto   controllers.implementacion.ProductosController.getProductoById(idProducto : Long)
+POST        /api/producto/              controllers.implementacion.ProductosController.save()
+PUT         /api/producto/:idProducto              controllers.implementacion.ProductosController.update(idProducto: Long)
+DELETE      /api/producto/:idProducto   controllers.implementacion.ProductosController.delete(idProducto : Long)
+
+
+#---------------------------------------------------
+#Saldo bodega
+GET         /api/saldo/       controllers.implementacion.SaldoBodegasController.getSaldoBodegas()
+POST        /api/saldo/       controllers.implementacion.SaldoBodegasController.saveOne()
+GET         /api/saldo/:id       controllers.implementacion.SaldoBodegasController.getSaldoBodegaByIdOne(id: Long)
+PUT         /api/saldo/:id       controllers.implementacion.SaldoBodegasController.update(id: Long)
+DELETE      /api/saldo/:id    controllers.implementacion.SaldoBodegasController.deleteOne(id: Long)
+
+
+
+#---------------------------------------------------
+GET         /api/carrito/all/            controllers.implementacion.CarritosController.getCarritos()
+POST        /api/carrito/add/            controllers.implementacion.CarritosController.save()
+#DELETE      /api/carrito/del/            controllers.implementacion.CarritosController.delete()
+
+# Home page
+GET         /                             controllers.Assets.at(path="/public/html_app", file= "index.html")
+GET         /angular/                      controllers.Assets.at(path="/public/angular_app", file= "index.html")
+GET         /ember/                        controllers.Assets.at(path="/public/ember_app", file= "index.html")
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET         /assets/*file                          controllers.Assets.versioned(path="/public", file: Asset)

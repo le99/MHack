@@ -1,43 +1,28 @@
-CREATE TABLE Client(
+CREATE TABLE Bodega(
 	id int NOT NULL,
-	password varchar(255),
-	name varchar(255),
+	nombre varchar(255),
 	PRIMARY KEY (id)
 )
 
  
 
 CREATE TABLE Producto(
-	name varchar(255),
 	id int NOT NULL,
+	nombre varchar(255),
+	descripcion varchar(255),
 	PRIMARY KEY (id)
 )
 
  
 
-CREATE TABLE Carrito(
+CREATE TABLE SaldoBodega(
 	id int NOT NULL,
-	name varchar(255),
-	clientId int,
-	PRIMARY KEY (id),
-	FOREIGN KEY (clientId) REFERENCES Client(id)
-)
-
- 
-CREATE TABLE Carritoitem(
-	carritoId int NOT NULL,
-	itemId int NOT NULL,
-	PRIMARY KEY (carritoId, itemId),
-	FOREIGN KEY (carritoId) REFERENCES Carrito(id),
-	FOREIGN KEY (itemId) REFERENCES Item(id)
-)
-
- 
-CREATE TABLE Item(
-	id int NOT NULL,
+	idBodega int,
+	idProducto int,
 	cantidad int,
-	name varchar(255),
-	productoId int,
 	PRIMARY KEY (id),
-	FOREIGN KEY (productoId) REFERENCES Producto(id)
+	FOREIGN KEY (idBodega) REFERENCES Bodega(id),
+	FOREIGN KEY (idProducto) REFERENCES Producto(id)
 )
+
+ 
