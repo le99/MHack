@@ -19,10 +19,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="atributes" upperBound="-1"
         eType="#//Atribute" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Atribute">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//Type"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AngularApp">
     <eStructuralFeatures xsi:type="ecore:EReference" name="pages" upperBound="-1"
         eType="#//AngularPage"/>
@@ -39,4 +35,14 @@
     <eLiterals name="double" value="2" literal="double"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JQueryApp"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Atribute" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SimpleAtribute" eSuperTypes="#//Atribute">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//Type"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PKAtribute" eSuperTypes="#//SimpleAtribute"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RefAtribute" eSuperTypes="#//SimpleAtribute">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ref" eType="#//Resource"/>
+  </eClassifiers>
 </ecore:EPackage>
