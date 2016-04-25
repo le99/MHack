@@ -22,6 +22,20 @@
 		var invDataServices:Template:= TemplateFactory.load('angularFront/invDataServices.egl');
 		invDataServices.populate('app', root.angularApp);
 		invDataServices.generate('./public/angular_app/common/services/invData.services.js');
+		
+		
+		for(page in root.angularApp.pages){
+			var pageName = page.resource.name.firstToLowerCase; 
+			
+			var pageController:Template:= TemplateFactory.load('angularFront/controllerJs.egl');
+			pageController.populate('page', page);
+			pageController.generate('./public/angular_app/test/' + pageName + '/' + pageName + '.controller.js');
+			
+			var pageTemplate:Template:= TemplateFactory.load('angularFront/templateHtml.egl');
+			pageTemplate.populate('page', page);
+			pageTemplate.generate('./public/angular_app/test/' + pageName + '/' + pageName + '.view.html');
+			
+		}
 	}
 	
 	
