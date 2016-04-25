@@ -7,15 +7,14 @@
 	//routes.generate('conf/routes2');
 	
 	
+	//----------------------------------------
+	//Angular App
 	
-	//var tPersistance:Template:= TemplateFactory.load('createPesistanceXML.egl');
-	//tPersistance.generate('./src/META-INF/persistence.xml');
-	
-	//var tClassPath:Template:= TemplateFactory.load('createClassPath.egl');
-	//tClassPath.generate('.classpath');
-	
-	//var file = (new Native("java.nio.file.Files")).copy("main.egl", "testCopy.egl");
-	//file.copy("main.egl", "testCopy.egl");
+	if(root.angularApp <> null){
+		var appjs:Template:= TemplateFactory.load('angularFront/appjs.egl');
+		appjs.populate('app', root.angularApp);
+		appjs.generate('./public/angular_app/app2.js');
+	}
 	
 	
 	

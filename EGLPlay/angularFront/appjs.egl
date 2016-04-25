@@ -1,0 +1,32 @@
+(function(){
+
+  angular.module('invApp', ['ngRoute']);
+
+  function config ($routeProvider, $locationProvider){
+    $routeProvider
+[%
+	for(page in app.pages){
+%]
+      .when('[%= page.route%]', {
+        templateUrl: '/assets/angular_app/bodegas/bodegas.view.html',
+        controller: 'bodegaCtrl',
+        controllerAs: 'vm'
+      })
+[%
+	}
+%]
+      .otherwise({redirectTo: '[%= app.pages.get(0).route%]'});
+
+    /*
+    $locationProvider.html5Mode({
+      enabled: true,
+      requireBase: false
+    });
+    */
+  }
+
+  angular.module('invApp')
+    .config(['$routeProvider', '$locationProvider', config]);
+
+}
+)();
