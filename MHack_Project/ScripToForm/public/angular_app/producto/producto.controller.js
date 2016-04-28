@@ -1,57 +1,63 @@
 (function(){
-
   angular.module('invApp')
     .controller('productoCtrl', productoCtrl);
 
   productoCtrl.$inject = ['invData'];
-  function productoCtrl(invData){
-    var vm = this;
-    vm.data = {};
+	function productoCtrl(invData){
+  		var vm = this;
+  		vm.data = {};
+    		
+		//table
+		invData.getProductos(function(data){
+			vm.data.lista = data;
+		});
 
-    invData.getProductos(function(data){
-      vm.data.lista = data;
-    });
+		//refs
 
     vm.data.create = true;
     vm.data.detalle = {};
+    
+    
     vm.addProducto = function(){
-      vm.data.create = true;
-      vm.data.detalle = {};
+		vm.data.create = true;
+		vm.data.detalle = {};
+    
     };
 
     vm.editProducto = function(detalle){
       vm.data.create = false;
-      vm.data.detalle = {};
-      vm.data.detalle.id = detalle.id;
-      vm.data.detalle.nombre = detalle.nombre;
-      vm.data.detalle.descripcion = detalle.descripcion;
+      vm.data.detalle = angular.copy(detalle);    
     };
 
-    vm.crearProducto = function(){
-      vm.data.create = false;
-      var detalle = angular.copy(vm.data.detalle);
+		vm.crearProducto = function(){
+			vm.data.create = false;
+			var detalle = angular.copy(vm.data.detalle);
+      
 
-      invData.addProducto(detalle, function(detalle){
-          vm.data.lista.push(detalle);
-      });
+			invData.addProducto(detalle, function(detalle){
+          		vm.data.lista.push(detalle);
+			});
 
-      vm.data.detalle = {};
+			vm.data.detalle = {};
+
     };
 
-    vm.updateProducto = function(){
-      vm.data.create = false;
-      var detalle = angular.copy(vm.data.detalle);
+		vm.updateProducto = function(){
+			vm.data.create = false;
+			var detalle = angular.copy(vm.data.detalle);
+       
 
-      invData.updateProducto(detalle, function(detalle){
-        for(var i = 0; i < vm.data.lista.length; i++){
-          if(vm.data.lista[i].id === detalle.id){
-            vm.data.lista[i] = detalle;
-            break;
-          }
-        }
-      });
+			invData.updateProducto(detalle, function(detalle){
+				for(var i = 0; i < vm.data.lista.length; i++){
+					if(vm.data.lista[i].id === detalle.id){
+						vm.data.lista[i] = detalle;
+						break;
+					}
+				}
+			});
 
-      vm.data.detalle = {};
+			vm.data.detalle = {};
+    
     };
 
     vm.deleteProducto = function(id){
@@ -64,6 +70,7 @@
         }
       });
     };
+
   }
 
 })();

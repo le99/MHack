@@ -29,11 +29,11 @@
 			
 			var pageController:Template:= TemplateFactory.load('angularFront/controllerJs.egl');
 			pageController.populate('page', page);
-			pageController.generate('./public/angular_app/test/' + pageName + '/' + pageName + '.controller.js');
+			pageController.generate('./public/angular_app/' + pageName + '/' + pageName + '.controller.js');
 			
 			var pageTemplate:Template:= TemplateFactory.load('angularFront/templateHtml.egl');
 			pageTemplate.populate('page', page);
-			pageTemplate.generate('./public/angular_app/test/' + pageName + '/' + pageName + '.view.html');
+			pageTemplate.generate('./public/angular_app/' + pageName + '/' + pageName + '.view.html');
 			
 		}
 	}

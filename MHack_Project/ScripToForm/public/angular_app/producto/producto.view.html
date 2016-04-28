@@ -9,23 +9,23 @@
           <button class="btn btn-success pull-right" ng-click="vm.addProducto()">
             <span class="glyphicon glyphicon-plus"></span> Crear
           </button>
-          <h4>Productos</h4>
+          <h4>Producto</h4>
         </div>
         <div class="table-responsive">
           <table class="table">
             <thead>
-              <tr>
-                <th>id</th>
-                <th>Nombre</th>
-                <th>Descripcion</th>
+              <tr>              
+                <th>id</th>              
+                <th>descripcion</th>              
+                <th>nombre</th>                
                 <th></th>
               </tr>
             </thead>
             <tbody>
-              <tr ng-repeat="dato in vm.data.lista">
-                <td>{{ dato.id }}</td>
-                <td>{{ dato.nombre }}</td>
-                <td>{{ dato.descripcion }}</td>
+              <tr ng-repeat="dato in vm.data.lista">              
+                <td>{{ dato.id }}</td>              
+                <td>{{ dato.descripcion }}</td>              
+                <td>{{ dato.nombre }}</td>                
                 <td>
                   <div class="btn-group">
                     <button class="btn btn-primary" ng-click="vm.editProducto(dato)">
@@ -51,27 +51,29 @@
         </div>
         <div class="panel-body">
           <form class="form-horizontal">
+         
             <div class="form-group">
               <label for="inputEmail3" class="col-sm-2 control-label">Id</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control" id="inputEmail3" placeholder="Id" ng-model="vm.data.detalle.id" disabled>
               </div>
             </div>
+            
+             
             <div class="form-group">
-              <label for="cantidad" class="col-sm-2 control-label">Nombre</label>
+              <label for="descripcion" class="col-sm-2 control-label">descripcion</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="cantidad" placeholder="0" ng-model="vm.data.detalle.nombre">
+                <input type="text" class="form-control" id="descripcion" ng-model="vm.data.detalle.descripcion">
               </div>
             </div>
+             
             <div class="form-group">
-              <label for="descripcion" class="col-sm-2 control-label">Descripcion</label>
+              <label for="nombre" class="col-sm-2 control-label">nombre</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="descripcion" placeholder="0" ng-model="vm.data.detalle.descripcion">
+                <input type="text" class="form-control" id="nombre" ng-model="vm.data.detalle.nombre">
               </div>
             </div>
-
-
-
+   
 
             <div class="form-group">
               <div class="col-sm-offset-2 col-sm-10">

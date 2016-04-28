@@ -6,7 +6,7 @@
     .controller('[%= resourceName %]Ctrl', [%= resourceName %]Ctrl);
 
   [%= resourceName %]Ctrl.$inject = ['invData'];
-	function s[%= resourceName %]Ctrl(invData){
+	function [%= resourceName %]Ctrl(invData){
   		var vm = this;
   		vm.data = {};
     		
@@ -51,7 +51,7 @@
 	for(atribute in page.resource.atributes.select(a | a.isKindOf(play!RefAtribute))) {
 %] 
       vm.data.selected[%= atribute.name.firstToUpperCase %]Option = _.find(vm.data.[%= atribute.name %]s, function(data){
-        return data.id === vm.data.detalle.id[%= atribute.name.firstToUpperCase %];
+        return data.id === vm.data.detalle.[%= atribute.name %];
       });
 [%
 	}
