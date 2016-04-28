@@ -6,19 +6,21 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <button class="btn btn-success pull-right" ng-click="vm.addSaldoBodega()">
+          <button class="btn btn-success pull-right" ng-click="vm.add[%= page.resource.name%]()">
             <span class="glyphicon glyphicon-plus"></span> Crear
           </button>
-          <h4>SaldoBodega</h4>
+          <h4>[%= page.resource.name%]</h4>
         </div>
         <div class="table-responsive">
           <table class="table">
             <thead>
-              <tr>
-                <th>id</th>
-                <th>idBodega</th>
-                <th>idProducto</th>
-                <th>cantidad</th>
+              <tr>[%
+	for(atribute in page.resource.atributes) {
+%]              
+                <th>[%= atribute.name %]</th>[%
+	}
+%]
+                
                 <th></th>
               </tr>
             </thead>
