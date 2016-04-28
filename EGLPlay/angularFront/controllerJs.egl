@@ -9,11 +9,13 @@
 	function s[%= resourceName %]Ctrl(invData){
   		var vm = this;
   		vm.data = {};
-    
+    		
+		//table
 		invData.get[%= page.resource.name%]s(function(data){
-      		vm.data.lista = data;
-    		});
+			vm.data.lista = data;
+		});
 
+		//refs
 [%
 	for(atribute in page.resource.atributes.select(a | a.isKindOf(play!RefAtribute))) {
 %]    
@@ -36,63 +38,81 @@
 [%
 	for(atribute in page.resource.atributes.select(a | a.isKindOf(play!RefAtribute))) {
 %]    
-		vm.data.selected[%= atribute.name.firstToUpperCase %]Option = {};
+		vm.data.selected[%= atribute.name.firstToUpperCase %]Option = {};[%
+	}
+%]
+    
+    };
+
+    vm.edit[%= page.resource.name%] = function(detalle){
+      vm.data.create = false;
+      vm.data.detalle = angular.copy(detalle);    
+[%
+	for(atribute in page.resource.atributes.select(a | a.isKindOf(play!RefAtribute))) {
+%] 
+      vm.data.selected[%= atribute.name.firstToUpperCase %]Option = _.find(vm.data.[%= atribute.name %]s, function(data){
+        return data.id === vm.data.detalle.id[%= atribute.name.firstToUpperCase %];
+      });
 [%
 	}
 %]
     };
 
-    vm.edit[%= page.resource.name%] = function(detalle){
-      vm.data.create = false;
-      vm.data.detalle = angular.copy(detalle);
-      vm.data.selectedBodegaOption = _.find(vm.data.bodegas, function(data){
-        return data.id === vm.data.detalle.idBodega;
-      });
+		vm.crear[%= page.resource.name%] = function(){
+			vm.data.create = false;
+			var detalle = angular.copy(vm.data.detalle);
+[%
+	for(atribute in page.resource.atributes.select(a | a.isKindOf(play!RefAtribute))) {
+%]       
+			detalle.id[%= atribute.name.firstToUpperCase %] = [%= atribute.name.firstToUpperCase %]Option.id;[%
+	}
+%]      
 
-      vm.data.selectedProductoOption = _.find(vm.data.productos, function(data){
-        return data.id === vm.data.detalle.idProducto;
-      });
+			invData.add[%= page.resource.name %](detalle, function(detalle){
+          		vm.data.lista.push(detalle);
+			});
+
+			vm.data.detalle = {};
+[%
+	for(atribute in page.resource.atributes.select(a | a.isKindOf(play!RefAtribute))) {
+%]    
+			vm.data.selected[%= atribute.name.firstToUpperCase %]Option = {};[%
+	}
+%]
 
     };
 
-    vm.crear[%= page.resource.name%] = function(){
-      vm.data.create = false;
-      var detalle = angular.copy(vm.data.detalle);
-      detalle.idBodega = vm.data.selectedBodegaOption.id;
-      detalle.idProducto = vm.data.selectedProductoOption.id;
+		vm.update[%= page.resource.name%] = function(){
+			vm.data.create = false;
+			var detalle = angular.copy(vm.data.detalle);
+[%
+	for(atribute in page.resource.atributes.select(a | a.isKindOf(play!RefAtribute))) {
+%]       
+			detalle.id[%= atribute.name.firstToUpperCase %] = [%= atribute.name.firstToUpperCase %]Option.id;[%
+	}
+%]       
 
-      invData.addSaldoBodega(detalle, function(detalle){
-          vm.data.lista.push(detalle);
-      });
+			invData.update[%= page.resource.name%](detalle, function(detalle){
+				for(var i = 0; i < vm.data.lista.length; i++){
+					if(vm.data.lista[i].id === detalle.id){
+						vm.data.lista[i] = detalle;
+						break;
+					}
+				}
+			});
 
-      vm.data.detalle = {};
-      vm.data.selectedBodegaOption = {};
-      vm.data.selectedProductoOption = {};
-    };
-
-    vm.update[%= page.resource.name%] = function(){
-      vm.data.create = false;
-      var detalle = angular.copy(vm.data.detalle);
-      detalle.idBodega = vm.data.selectedBodegaOption.id;
-      detalle.idProducto = vm.data.selectedProductoOption.id;
-
-      invData.updateSaldoBodega(detalle, function(detalle){
-
-        for(var i = 0; i < vm.data.lista.length; i++){
-          if(vm.data.lista[i].id === detalle.id){
-            vm.data.lista[i] = detalle;
-            break;
-          }
-        }
-      });
-
-      vm.data.detalle = {};
-      vm.data.selectedBodegaOption = {};
-      vm.data.selectedProductoOption = {};
+			vm.data.detalle = {};
+[%
+	for(atribute in page.resource.atributes.select(a | a.isKindOf(play!RefAtribute))) {
+%]    
+			vm.data.selected[%= atribute.name.firstToUpperCase %]Option = {};[%
+	}
+%]
+    
     };
 
     vm.delete[%= page.resource.name%] = function(id){
-      invData.deleteSaldoBodega(id, function(data){
+      invData.delete[%= page.resource.name%](id, function(data){
         for(var i = 0; i < vm.data.lista.length; i++){
           if(vm.data.lista[i].id === id){
             vm.data.lista.splice(i, 1);

@@ -7,15 +7,20 @@
   function saldoBodegaCtrl(invData){
     var vm = this;
     vm.data = {};
-    vm.data.selectedBodegaOption = {};
+
+    //table
     invData.getSaldoBodegas(function(data){
       vm.data.lista = data;
     });
 
+    //refs
+    vm.data.selectedBodegaOption = {};
+
     invData.getBodegas(function(data){
       vm.data.bodegas = data;
-      //vm.data.selectedBodegaOption = {id:55};
     });
+
+    vm.data.selectedProductoOption = {};
 
     invData.getProductos(function(data){
       vm.data.productos = data;
