@@ -14,8 +14,8 @@
       <resources name="SaldoBodega" url="/api/SaldoBodega/">
         <atributes xsi:type="playApp:PKAtribute" name="id" type="int"/>
         <atributes xsi:type="playApp:SimpleAtribute" name="cantidad" type="int"/>
-        <atributes xsi:type="playApp:RefAtribute" name="producto" type="int" ref="/0/@backend/@resources.1"/>
-        <atributes xsi:type="playApp:RefAtribute" name="bodega" type="int" ref="/0/@backend/@resources.0"/>
+        <atributes xsi:type="playApp:RefAtribute" name="idProducto" type="int" ref="/0/@backend/@resources.1"/>
+        <atributes xsi:type="playApp:RefAtribute" name="idBodega" type="int" ref="/0/@backend/@resources.0"/>
       </resources>
     </backend>
   </playApp:App>

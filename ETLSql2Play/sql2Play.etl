@@ -186,7 +186,11 @@ operation sql!Table getFKVars(){
 	for(fk in tableFk) 
 	{
  		var c = new Map();
-		c.put('name', fk.foreignTable.name.firstToLowerCase());
+ 		
+ 		if(fk.localColumns.size() > 1){
+ 			"ERROR fk: "+ fk.localColumns.get(0).name +" referencia a varias columnas".println();
+ 		}
+		c.put('name', fk.localColumns.get(0).name);
 		c.put('type', fk.foreignTable.name);
 		c.put('object', fk);
 		vars.put(fk.foreignTable.name.firstToLowerCase(), c);
