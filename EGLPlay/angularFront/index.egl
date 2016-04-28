@@ -40,10 +40,14 @@
 
     <!-- Angular app -->
     <script src="/assets/angular_app/app.js"></script>
-    
-    <script src="/assets/angular_app/bodega/bodega.controller.js"></script>    
-    <script src="/assets/angular_app/producto/producto.controller.js"></script>    
-    <script src="/assets/angular_app/saldoBodega/saldoBodega.controller.js"></script>
+[%
+	for(page in app.pages){
+		var resource = page.resource.name.firstToLowerCase;
+%]    
+    <script src="/assets/angular_app/[%= resource%]/[%= resource%].controller.js"></script>[%
+	}
+%]
+
 
     <script src="/assets/angular_app/common/services/invData.services.js"></script>
 

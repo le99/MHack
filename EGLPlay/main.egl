@@ -15,7 +15,9 @@
 		appjs.populate('app', root.angularApp);
 		appjs.generate('./public/angular_app/app.js');
 		
-		
+		var indexT:Template:= TemplateFactory.load('angularFront/index.egl');
+		indexT.populate('app', root.angularApp);
+		indexT.generate('./public/angular_app/index.html');
 		
 		//navigation
 		var navigationDirective:Template:= TemplateFactory.load('angularFront/common/navigation/navigationDirective.egl');
