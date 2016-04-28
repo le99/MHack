@@ -64,7 +64,7 @@
 [%
 	for(atribute in page.resource.atributes.select(a | a.isKindOf(play!RefAtribute))) {
 %]       
-			detalle.id[%= atribute.name.firstToUpperCase %] = [%= atribute.name.firstToUpperCase %]Option.id;[%
+			detalle.[%= atribute.name %] = vm.data.selected[%= atribute.name.firstToUpperCase %]Option.id;[%
 	}
 %]      
 
@@ -88,7 +88,7 @@
 [%
 	for(atribute in page.resource.atributes.select(a | a.isKindOf(play!RefAtribute))) {
 %]       
-			detalle.id[%= atribute.name.firstToUpperCase %] = [%= atribute.name.firstToUpperCase %]Option.id;[%
+			detalle.[%= atribute.name %] = vm.data.selected[%= atribute.name.firstToUpperCase %]Option.id;[%
 	}
 %]       
 

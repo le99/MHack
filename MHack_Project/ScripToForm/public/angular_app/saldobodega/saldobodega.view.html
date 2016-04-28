@@ -69,8 +69,8 @@
               <label for="bodega" class="col-sm-2 control-label">Bodega</label>
               <div class="col-sm-10">
                 <select name="mySelect" id="mySelect" class="form-control"
-                      ng-options="option.id for option in vm.data.bodegas track by option.id"
-                      ng-model="vm.data.selectedBodegaOption">
+                      ng-options="option.id for option in vm.data.idBodegas track by option.id"
+                      ng-model="vm.data.selectedIdBodegaOption">
                 </select>
                 <!--
                 <select class="form-control" id="bodega" ng-model="vm.data.detalle.idBodega">
@@ -86,8 +86,8 @@
               <div class="col-sm-10">
 
                 <select name="mySelect2" id="mySelect2" class="form-control"
-                      ng-options="option.id for option in vm.data.productos track by option.id"
-                      ng-model="vm.data.selectedProductoOption">
+                      ng-options="option.id for option in vm.data.idProductos track by option.id"
+                      ng-model="vm.data.selectedIdProductoOption">
                 </select>
                 <!--
                 <select class="form-control" id="producto" ng-model="vm.data.detalle.idProducto">
