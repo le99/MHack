@@ -26,7 +26,15 @@
   <eClassifiers xsi:type="ecore:EClass" name="AngularPage">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="route" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="resource" eType="#//Resource"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="controller" eType="#//AngularController"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="template" eType="#//AngularTemplate"
+        containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AngularController">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AngularTemplate"/>
   <eClassifiers xsi:type="ecore:EEnum" name="Type">
     <eLiterals name="String" literal="String"/>
     <eLiterals name="int" value="1" literal="int"/>

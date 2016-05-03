@@ -96,6 +96,11 @@ operation play!App setAngularFront(){
 		var page = new play!AngularPage();
 		page.route = '/' + r.name;
 		page.resource = r;
+		var controller = new play!AngularController();
+		controller.name = r.name + "Ctrl";
+		page.controller = controller;
+		
+		page.template = new play!AngularTemplate();
 		self.angularApp.pages.add(page);	
 	}
 }

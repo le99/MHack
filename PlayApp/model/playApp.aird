@@ -203,22 +203,6 @@
             <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_334ecAA1Eeadp4admJlbrg" id="(0.5,0.5)"/>
             <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_334ecQA1Eeadp4admJlbrg" id="(0.5,0.5)"/>
           </edges>
-          <edges xmi:type="notation:Edge" xmi:id="_334ecgA1Eeadp4admJlbrg" type="4001" element="_33qcAAA1Eeadp4admJlbrg" source="_i4R4AwA1Eeadp4admJlbrg" target="_i4QC0AA1Eeadp4admJlbrg">
-            <children xmi:type="notation:Node" xmi:id="_335FgAA1Eeadp4admJlbrg" type="6001">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_335FgQA1Eeadp4admJlbrg" y="-10"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_335FggA1Eeadp4admJlbrg" type="6002">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_335FgwA1Eeadp4admJlbrg" y="10"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_335skAA1Eeadp4admJlbrg" type="6003">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_335skQA1Eeadp4admJlbrg" y="10"/>
-            </children>
-            <styles xmi:type="notation:ConnectorStyle" xmi:id="_334ecwA1Eeadp4admJlbrg" routing="Rectilinear"/>
-            <styles xmi:type="notation:FontStyle" xmi:id="_334edAA1Eeadp4admJlbrg" fontColor="7490599" fontName=".SF NS Text" fontHeight="8"/>
-            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_334edQA1Eeadp4admJlbrg" points="[-59, -22, 148, -13]$[-148, -22, 59, -13]"/>
-            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_335skgA1Eeadp4admJlbrg" id="(0.5,0.5)"/>
-            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_335skwA1Eeadp4admJlbrg" id="(0.5,0.5)"/>
-          </edges>
           <edges xmi:type="notation:Edge" xmi:id="_6PVBgAA2Eeadp4admJlbrg" type="4001" element="_6PPh8AA2Eeadp4admJlbrg" source="_i4QC0AA1Eeadp4admJlbrg" target="_6PSlQAA2Eeadp4admJlbrg">
             <children xmi:type="notation:Node" xmi:id="_6PVBhAA2Eeadp4admJlbrg" type="6001">
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6PVBhQA2Eeadp4admJlbrg" x="17"/>
@@ -283,7 +267,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_i3zW4AA1Eeadp4admJlbrg" name="Resource" tooltipText="" outgoingEdges="_6PPh8AA2Eeadp4admJlbrg" incomingEdges="_i4IuEAA1Eeadp4admJlbrg _33pN4AA1Eeadp4admJlbrg _33qcAAA1Eeadp4admJlbrg" width="12" height="10">
+      <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_i3zW4AA1Eeadp4admJlbrg" name="Resource" tooltipText="" outgoingEdges="_6PPh8AA2Eeadp4admJlbrg" incomingEdges="_i4IuEAA1Eeadp4admJlbrg _33pN4AA1Eeadp4admJlbrg" width="12" height="10">
         <target xmi:type="ecore:EClass" href="playApp.ecore#//Resource"/>
         <semanticElements xmi:type="ecore:EClass" href="playApp.ecore#//Resource"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -318,7 +302,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_i32aMAA1Eeadp4admJlbrg" name="AngularPage" tooltipText="" outgoingEdges="_33pN4AA1Eeadp4admJlbrg _33qcAAA1Eeadp4admJlbrg" incomingEdges="_i4J8MAA1Eeadp4admJlbrg" width="12" height="10">
+      <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_i32aMAA1Eeadp4admJlbrg" name="AngularPage" tooltipText="" outgoingEdges="_33pN4AA1Eeadp4admJlbrg" incomingEdges="_i4J8MAA1Eeadp4admJlbrg" width="12" height="10">
         <target xmi:type="ecore:EClass" href="playApp.ecore#//AngularPage"/>
         <semanticElements xmi:type="ecore:EClass" href="playApp.ecore#//AngularPage"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -380,14 +364,9 @@
       <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_i4J8MAA1Eeadp4admJlbrg" name="[0..*] pages" sourceNode="_i30lAAA1Eeadp4admJlbrg" targetNode="_i32aMAA1Eeadp4admJlbrg">
         <target xmi:type="ecore:EReference" href="playApp.ecore#//AngularApp/pages"/>
         <semanticElements xmi:type="ecore:EReference" href="playApp.ecore#//AngularApp/pages"/>
-        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_i4KjQAA1Eeadp4admJlbrg" routingStyle="manhattan" strokeColor="0,0,0">
-          <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']/@style"/>
-          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_i4KjQQA1Eeadp4admJlbrg" showIcon="false">
-            <customFeatures>labelSize</customFeatures>
-          </centerLabelStyle>
-          <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_i4KjQgA1Eeadp4admJlbrg" showIcon="false" labelColor="39,76,114">
-            <customFeatures>labelSize</customFeatures>
-          </endLabelStyle>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_ungjcBFFEeadBZTZMbASaA" description="_i4GR0AA1Eeadp4admJlbrg" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_ungjcRFFEeadBZTZMbASaA" showIcon="false"/>
+          <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_ungjchFFEeadBZTZMbASaA" labelSize="6" showIcon="false" labelColor="39,76,114"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
       </ownedDiagramElements>
@@ -400,20 +379,6 @@
             <customFeatures>labelSize</customFeatures>
           </centerLabelStyle>
           <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_33p08gA1Eeadp4admJlbrg" showIcon="false" labelColor="39,76,114">
-            <customFeatures>labelSize</customFeatures>
-          </endLabelStyle>
-        </ownedStyle>
-        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
-      </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_33qcAAA1Eeadp4admJlbrg" name="[0..*] subResource" sourceNode="_i32aMAA1Eeadp4admJlbrg" targetNode="_i3zW4AA1Eeadp4admJlbrg">
-        <target xmi:type="ecore:EReference" href="playApp.ecore#//AngularPage/subResource"/>
-        <semanticElements xmi:type="ecore:EReference" href="playApp.ecore#//AngularPage/subResource"/>
-        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_33rDEAA1Eeadp4admJlbrg" routingStyle="manhattan" strokeColor="0,0,0">
-          <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']/@style"/>
-          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_33rDEQA1Eeadp4admJlbrg" showIcon="false">
-            <customFeatures>labelSize</customFeatures>
-          </centerLabelStyle>
-          <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_33rDEgA1Eeadp4admJlbrg" showIcon="false" labelColor="39,76,114">
             <customFeatures>labelSize</customFeatures>
           </endLabelStyle>
         </ownedStyle>

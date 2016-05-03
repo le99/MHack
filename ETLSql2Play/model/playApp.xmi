@@ -20,8 +20,17 @@
     </backend>
   </playApp:App>
   <playApp:AngularApp>
-    <pages route="/Bodega" resource="/0/@backend/@resources.0"/>
-    <pages route="/Producto" resource="/0/@backend/@resources.1"/>
-    <pages route="/SaldoBodega" resource="/0/@backend/@resources.2"/>
+    <pages route="/Bodega" resource="/0/@backend/@resources.0">
+      <controller name="BodegaCtrl"/>
+      <template/>
+    </pages>
+    <pages route="/Producto" resource="/0/@backend/@resources.1">
+      <controller name="ProductoCtrl"/>
+      <template/>
+    </pages>
+    <pages route="/SaldoBodega" resource="/0/@backend/@resources.2">
+      <controller name="SaldoBodegaCtrl"/>
+      <template/>
+    </pages>
   </playApp:AngularApp>
 </xmi:XMI>
