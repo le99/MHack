@@ -6,9 +6,6 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <button class="btn btn-success pull-right" ng-click="vm.add[%= page.resource.name%]()">
-            <span class="glyphicon glyphicon-plus"></span> Crear
-          </button>
           <h4>[%= page.resource.name%]</h4>
         </div>
         <div class="table-responsive">
@@ -53,6 +50,9 @@
     <div class="col-md-6 starter-template">
       <div class="panel panel-default">
         <div class="panel-heading">
+        	  <button class="btn btn-danger pull-right" ng-click="vm.add[%= page.resource.name%]()">
+            <span class="glyphicon glyphicon-remove"></span> Borrar cambios
+          </button>
           <h4>Detalles [%= page.resource.name%]</h4>
         </div>
         <div class="panel-body">
