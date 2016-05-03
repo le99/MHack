@@ -1,12 +1,9 @@
 (function(){
-[%
-	var resourceName = page.resource.name.firstToLowerCase;
-%]
   angular.module('invApp')
-    .controller('[%= resourceName %]Ctrl', [%= resourceName %]Ctrl);
+    .controller('[%= page.controller.name %]', [%= page.controller.name %]);
 
-  [%= resourceName %]Ctrl.$inject = ['invData'];
-	function [%= resourceName %]Ctrl(invData){
+  [%= page.controller.name %].$inject = ['invData'];
+	function [%= page.controller.name %](invData){
   		var vm = this;
   		vm.data = {};
     		

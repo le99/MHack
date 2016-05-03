@@ -10,7 +10,7 @@
 %]
       .when('[%= page.route%]', {
         templateUrl: '/assets/angular_app/[%= resourceName%]/[%= resourceName%].view.html',
-        controller: '[%= resourceName%]Ctrl',
+        controller: '[%= page.controller.name %]',
         controllerAs: 'vm'
       })
 [%
