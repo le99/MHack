@@ -6,10 +6,9 @@
     $routeProvider
 [%
 	for(page in app.pages){
-		var resourceName = page.resource.name.firstToLowerCase;
 %]
       .when('[%= page.route%]', {
-        templateUrl: '/assets/angular_app/[%= resourceName%]/[%= resourceName%].view.html',
+        templateUrl: '/assets/angular_app/[%= page.sourceDir%]/[%= page.template.fileName %]',
         controller: '[%= page.controller.name %]',
         controllerAs: 'vm'
       })

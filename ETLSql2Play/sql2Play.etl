@@ -95,6 +95,7 @@ operation play!App setAngularFront(){
 	for(r in self.backend.resources){
 		var page = new play!AngularPage();
 		page.route = '/' + r.name;
+		page.sourceDir = r.name.firstToLowerCase;
 		page.resource = r;
 		var controller = new play!AngularController();
 		controller.name = r.name.firstToLowerCase + "Ctrl";

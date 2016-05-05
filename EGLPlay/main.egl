@@ -40,15 +40,14 @@
 		
 		
 		for(page in root.angularApp.pages){
-			var pageName = page.resource.name.firstToLowerCase; 
 			
 			var pageController:Template:= TemplateFactory.load('angularFront/controllerJs.egl');
 			pageController.populate('page', page);
-			pageController.generate('./public/angular_app/' + pageName + '/' + page.controller.fileName);
+			pageController.generate('./public/angular_app/' + page.sourceDir + '/' + page.controller.fileName);
 			
 			var pageTemplate:Template:= TemplateFactory.load('angularFront/templateHtml.egl');
 			pageTemplate.populate('page', page);
-			pageTemplate.generate('./public/angular_app/' + pageName + '/' + page.template.fileName);
+			pageTemplate.generate('./public/angular_app/' + page.sourceDir + '/' + page.template.fileName);
 			
 		}
 	}
