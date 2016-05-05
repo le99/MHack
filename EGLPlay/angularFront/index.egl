@@ -44,7 +44,7 @@
 	for(page in app.pages){
 		var resource = page.resource.name.firstToLowerCase;
 %]    
-    <script src="/assets/angular_app/[%= resource%]/[%= resource%].controller.js"></script>[%
+    <script src="/assets/angular_app/[%= page.sourceDir %]/[%= page.controller.fileName %]"></script>[%
 	}
 %]
 
