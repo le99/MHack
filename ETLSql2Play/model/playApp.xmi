@@ -21,16 +21,16 @@
   </playApp:App>
   <playApp:AngularApp>
     <pages route="/Bodega" resource="/0/@backend/@resources.0">
-      <controller name="bodegaCtrl"/>
-      <template/>
+      <controller name="bodegaCtrl" fileName="bodega.controller.js"/>
+      <template fileName="bodega.view.html"/>
     </pages>
     <pages route="/Producto" resource="/0/@backend/@resources.1">
-      <controller name="productoCtrl"/>
-      <template/>
+      <controller name="productoCtrl" fileName="producto.controller.js"/>
+      <template fileName="producto.view.html"/>
     </pages>
     <pages route="/SaldoBodega" resource="/0/@backend/@resources.2">
-      <controller name="saldoBodegaCtrl"/>
-      <template/>
+      <controller name="saldoBodegaCtrl" fileName="saldoBodega.controller.js"/>
+      <template fileName="saldoBodega.view.html"/>
     </pages>
   </playApp:AngularApp>
 </xmi:XMI>
