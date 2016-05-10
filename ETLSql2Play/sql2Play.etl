@@ -32,14 +32,18 @@ operation sql!Database getResources(): List{
 			{
 				var pk = new play!PKAtribute();
 				pk.name = mPk.get(myVar).get('name');
-				pk.type = string2PrimitiveType(mPk.get(myVar).get('type')); 
+				if(string2PrimitiveType(mPk.get(myVar).get('type')) = play!Type#int){
+					pk.type = play!Type#Long; 
+				}else{
+					pk.type = string2PrimitiveType(mPk.get(myVar).get('type')); 
+				}
 				r.atributes.add(pk);
 			}
 		}
 		else {	//Varias pk, crear una sola pk: "id"
 			var pk = new play!PKAtribute();
 			pk.name = 'id';
-			pk.type = play!Type#int; 
+			pk.type = play!Type#Long; 
 			r.atributes.add(pk);
 			
 			for(myVar in mPk.keySet()) 
@@ -82,7 +86,9 @@ operation sql!Database setResourceRealationships(resources){
 				); 
 				pk.ref = geResourceByName(mFk.get(myVar).get('object').foreignTable.name, resources); 
 			}
-			
+			if(pk.type = play!Type#int){
+				pk.type =  play!Type#Long;
+			}
 			r.atributes.add(pk);
 		}
 		

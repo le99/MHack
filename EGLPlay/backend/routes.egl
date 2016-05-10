@@ -1,46 +1,34 @@
 # Routes
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
+[%
+for(resource in backend.resources){
+%]
 
 #------------------------------------------
-# Bodega
+# [%=resource.name.firstToUpperCase()%]
 
-GET         /api/bodega/            controllers.implementacion.BodegasController.getBodegas()
-GET         /api/bodega/:idBodega   controllers.implementacion.BodegasController.getBodegaById(idBodega : Long)
-POST        /api/bodega/            controllers.implementacion.BodegasController.save()
-PUT         /api/bodega/:id         controllers.implementacion.BodegasController.update(id: Long)
-DELETE      /api/bodega/:idBodega   controllers.implementacion.BodegasController.delete(idBodega : Long)
+GET         [%=resource.url%]            controllers.implementacion.[%=resource.name.firstToUpperCase()%]sController.get[%=resource.name.firstToUpperCase()%]s()
+[%
+	/*Imprime rutas por Id*/
+	for(atribute in resource.atributes.select(a|a.isTypeOf(PKAtribute))){%]
+GET         [%=resource.url%]:[%=atribute.name.firstToLowerCase()%]            controllers.implementacion.[%=resource.name.firstToUpperCase()%]sController.get[%=resource.name.firstToUpperCase()%]ById([%=atribute.name.firstToLowerCase()%] : [%=atribute.type%])
+DELETE      [%=resource.url%]:[%=atribute.name.firstToLowerCase()%]            controllers.implementacion.[%=resource.name.firstToUpperCase()%]sController.delete([%=atribute.name.firstToLowerCase()%] : [%=atribute.type%])
+	[%}%]
+POST        [%=resource.url%]            controllers.implementacion.[%=resource.name.firstToUpperCase()%]sController.save()
+PUT         [%=resource.url%]            controllers.implementacion.[%=resource.name.firstToUpperCase()%]sController.update()
 
-GET         /api/bodega/:idBodega/saldos/           controllers.implementacion.SaldoBodegasController.getSaldoBodegasByBodegaId(idBodega : Long)
-GET         /api/bodega/:idBodega/saldos/:idSaldo   controllers.implementacion.SaldoBodegasController.getSaldoBodegaById(idBodega :Long ,idSaldo : Long)
-POST        /api/bodega/:idBodega/saldos/           controllers.implementacion.SaldoBodegasController.save(idBodega :Long)
-DELETE      /api/bodega/:idBodega/saldos/:idSaldo   controllers.implementacion.SaldoBodegasController.delete(idBodega :Long, idSaldo : Long)
-
-
-#-------------------------------------------------
-# Producto
-
-GET         /api/producto/              controllers.implementacion.ProductosController.getProductos()
-GET         /api/producto/:idProducto   controllers.implementacion.ProductosController.getProductoById(idProducto : Long)
-POST        /api/producto/              controllers.implementacion.ProductosController.save()
-PUT         /api/producto/:idProducto              controllers.implementacion.ProductosController.update(idProducto: Long)
-DELETE      /api/producto/:idProducto   controllers.implementacion.ProductosController.delete(idProducto : Long)
-
-
-#---------------------------------------------------
-#Saldo bodega
-GET         /api/saldo/       controllers.implementacion.SaldoBodegasController.getSaldoBodegas()
-POST        /api/saldo/       controllers.implementacion.SaldoBodegasController.saveOne()
-GET         /api/saldo/:id       controllers.implementacion.SaldoBodegasController.getSaldoBodegaByIdOne(id: Long)
-PUT         /api/saldo/:id       controllers.implementacion.SaldoBodegasController.update(id: Long)
-DELETE      /api/saldo/:id    controllers.implementacion.SaldoBodegasController.deleteOne(id: Long)
-
-
-
-#---------------------------------------------------
-GET         /api/carrito/all/            controllers.implementacion.CarritosController.getCarritos()
-POST        /api/carrito/add/            controllers.implementacion.CarritosController.save()
-#DELETE      /api/carrito/del/            controllers.implementacion.CarritosController.delete()
+[%
+	/*Imprime rutas por Referencias*/
+	for(rsrc in backend.resources){
+		for(atrTmp in rsrc.atributes.select(a|a.isTypeOf(RefAtribute))){
+			if(resource.name = atrTmp.ref.name){%]
+GET         [%=resource.url%]:[%if(resource.getId() <> null){%][%=atrTmp.name.firstToLowerCase()%][%}%]/[%=rsrc.name.firstToUpperCase()%]/           controllers.implementacion.[%=rsrc.name.firstToUpperCase()%]sController.get[%=rsrc.name.firstToUpperCase()%]sBy[%=atrTmp.name.firstToUpperCase()%]([%=atrTmp.name.firstToLowerCase()%] : [%=atrTmp.type%])
+			[%}
+		}
+	}
+}
+%]
 
 # Home page
 GET         /                             controllers.Assets.at(path="/public/html_app", file= "index.html")
@@ -50,3 +38,13 @@ GET         /ember/                        controllers.Assets.at(path="/public/e
 
 # Map static resources from the /public folder to the /assets URL path
 GET         /assets/*file                          controllers.Assets.versioned(path="/public", file: Asset)
+[%
+/*Operacion recupera el PKey del recurso*/ 
+ operation Resource getId () : Atribute {
+	 if(self.atributes.select(a|a.isTypeOf(PKAtribute)).size() > 0){
+		return 	 self.atributes.select(a|a.isTypeOf(PKAtribute)).at(0);
+	 }
+	 return null;
+ }
+
+%]

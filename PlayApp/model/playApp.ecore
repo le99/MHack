@@ -43,6 +43,7 @@
     <eLiterals name="String" literal="String"/>
     <eLiterals name="int" value="1" literal="int"/>
     <eLiterals name="double" value="2" literal="double"/>
+    <eLiterals name="Long" value="3" literal="Long"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JQueryApp"/>
   <eClassifiers xsi:type="ecore:EClass" name="Atribute" abstract="true">
