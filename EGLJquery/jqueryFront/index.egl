@@ -36,18 +36,13 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
         
-    
+[%
+for(page in app.pages){
+%]    
 <ul class="nav navbar-nav">
-<li class="active"><a href="/assets/html_app/Bodega.html">Bodega</a></li>
+<li class="active"><a href="/assets/html_app/[%= page.resource.name%].html">[%= page.resource.name %]</a></li>
 </ul>
-    
-<ul class="nav navbar-nav">
-<li class="active"><a href="/assets/html_app/Producto.html">Producto</a></li>
-</ul>
-    
-<ul class="nav navbar-nav">
-<li class="active"><a href="/assets/html_app/SaldoBodega.html">SaldoBodega</a></li>
-</ul>
+[%  }%]
     
         </div><!--/.nav-collapse -->
       </div>
