@@ -2,64 +2,38 @@ package models;
 
 import javax.persistence.*;
 
-/**
- * Created by JoséLuis on 02/04/2016.
- */
 @Entity
 @NamedQueries({
         @NamedQuery(name = "SaldoBodega.findAll", query = "SELECT t FROM SaldoBodega t  "),
-        @NamedQuery(name = "SaldoBodega.findById", query = "SELECT t FROM SaldoBodega t where id = :id "),
-        @NamedQuery(name = "SaldoBodega.findByIdBodega", query = "SELECT t FROM SaldoBodega t where idBodega = :idBodega "),
-        @NamedQuery(name = "SaldoBodega.findByIdProducto", query = "SELECT t FROM SaldoBodega t where idProducto = :idProducto ")
+        @NamedQuery(name = "SaldoBodega.findById", query = "SELECT t FROM SaldoBodega t where id = :id ")
+        ,@NamedQuery(name = "SaldoBodega.findByIdProducto", query = "SELECT t FROM SaldoBodega t where idProducto = :idProducto ")
+        ,@NamedQuery(name = "SaldoBodega.findByIdBodega", query = "SELECT t FROM SaldoBodega t where idBodega = :idBodega ")
+        
 })
 public class SaldoBodega {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,
-            generator = "saldoBodegaGen")
-    @SequenceGenerator(name = "saldoBodegaGen",
-            sequenceName = "saldoBodega_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "saldoBodegaGen")
+    @SequenceGenerator(name = "saldoBodegaGen", sequenceName = "saldoBodega_seq")
     @Column
-    private long id;
+    private Long id;
     @Column
-    private long idBodega;
+    private int cantidad;
     @Column
-    private long idProducto;
+    private Long idProducto;
     @Column
-    private double cantidad;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public long getIdBodega() {
-        return idBodega;
-    }
-
-    public void setIdBodega(long idBodega) {
-        this.idBodega = idBodega;
-    }
-
-    public long getIdProducto() {
-        return idProducto;
-    }
-
-    public void setIdProducto(long idProducto) {
-        this.idProducto = idProducto;
-    }
-
-    public double getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(double cantidad) {
-        this.cantidad = cantidad;
-    }
-
-    public String toString(){
-      return this.id + ", " + this.idBodega + ", " + this.idProducto + ", " + this.cantidad;
-    }
+    private Long idBodega;
+	
+    public Long getId() { return id; }
+    public void setId(Long id){this.id= id;}
+	
+    public int getCantidad() { return cantidad; }
+    public void setCantidad(int cantidad){this.cantidad= cantidad;}
+	
+    public Long getIdProducto() { return idProducto; }
+    public void setIdProducto(Long idProducto){this.idProducto= idProducto;}
+	
+    public Long getIdBodega() { return idBodega; }
+    public void setIdBodega(Long idBodega){this.idBodega= idBodega;}
 }
+

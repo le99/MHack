@@ -3,19 +3,19 @@
   <playApp:App name="myApp" angularApp="/1">
     <backend>
       <resources name="Bodega" url="/api/Bodega/">
-        <atributes xsi:type="playApp:PKAtribute" name="id" type="int"/>
+        <atributes xsi:type="playApp:PKAtribute" name="id" type="Long"/>
         <atributes xsi:type="playApp:SimpleAtribute" name="nombre"/>
       </resources>
       <resources name="Producto" url="/api/Producto/">
-        <atributes xsi:type="playApp:PKAtribute" name="id" type="int"/>
+        <atributes xsi:type="playApp:PKAtribute" name="id" type="Long"/>
         <atributes xsi:type="playApp:SimpleAtribute" name="descripcion"/>
         <atributes xsi:type="playApp:SimpleAtribute" name="nombre"/>
       </resources>
       <resources name="SaldoBodega" url="/api/SaldoBodega/">
-        <atributes xsi:type="playApp:PKAtribute" name="id" type="int"/>
+        <atributes xsi:type="playApp:PKAtribute" name="id" type="Long"/>
         <atributes xsi:type="playApp:SimpleAtribute" name="cantidad" type="int"/>
-        <atributes xsi:type="playApp:RefAtribute" name="idProducto" type="int" ref="/0/@backend/@resources.1"/>
-        <atributes xsi:type="playApp:RefAtribute" name="idBodega" type="int" ref="/0/@backend/@resources.0"/>
+        <atributes xsi:type="playApp:RefAtribute" name="idProducto" type="Long" ref="/0/@backend/@resources.1"/>
+        <atributes xsi:type="playApp:RefAtribute" name="idBodega" type="Long" ref="/0/@backend/@resources.0"/>
       </resources>
     </backend>
   </playApp:App>

@@ -4,16 +4,18 @@ import models.Producto;
 
 import java.util.List;
 
-/**
- * Created by JoséLuis on 02/04/2016.
- */
 public interface IProducto {
+
+
     public List<Producto> getProductos();
-    public Producto getProductoById(long id);
+    public Producto getProductoById(Long id);
+    
 
     Producto save(Producto producto);
     Producto update(Producto producto);
-    Producto delete(long id);
+    Producto delete(Long id);
+    
 
 
 }
+

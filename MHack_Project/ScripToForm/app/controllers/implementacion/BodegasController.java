@@ -8,24 +8,22 @@ import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
 
-/**
- * Created by JoséLuis on 03/04/2016.
- */
 public class BodegasController extends Controller {
     private static IBodega bodegas = new Bodegas();
 
     @Transactional
-    public Result getBodegas() {
+    public Result getBodegas(){
         return ok(Json.toJson(bodegas.getBodegas()));
     }
+
     @Transactional
-    public Result getBodegaById(Long id) {
+    public Result getBodegaById(Long id){
         return ok(Json.toJson(bodegas.getBodegaById(id)));
     }
+    
 
     @Transactional
-    public Result save() {
-
+    public Result save(){
         JsonNode json = request().body().asJson();
         JsonNode respuesta = Json.parse("{\"errorCode\":\"1\",\"desCode\":\"Error en bodegas\"}");
         Bodega bodega = Json.fromJson(json,Bodega.class);
@@ -34,11 +32,11 @@ public class BodegasController extends Controller {
             respuesta=Json.toJson(bodega);
         }
         return ok(Json.toJson(respuesta));
+    
     }
 
     @Transactional
-    public Result update(Long id) {
-
+    public Result update(Long id){
         JsonNode json = request().body().asJson();
         JsonNode respuesta = Json.parse("{\"errorCode\":\"1\",\"desCode\":\"Error en bodegas\"}");
         Bodega bodega = Json.fromJson(json,Bodega.class);
@@ -47,19 +45,22 @@ public class BodegasController extends Controller {
             bodega= bodegas.update(bodega);
             respuesta=Json.toJson(bodega);
         }
-        return ok(Json.toJson(respuesta));
+        return ok(respuesta);
+    
     }
 
     @Transactional
-    public Result delete(Long id) {
-
+    public Result  delete(Long id){
         JsonNode respuesta = Json.parse("{\"errorCode\":\"1\",\"desCode\":\"Error en bodegas\"}");
         Bodega bodega= bodegas.delete(id);
         if(bodega!=null){
             respuesta=Json.toJson(bodega);
         }
         return ok(respuesta);
+    
     }
+    
+
 
 
 }

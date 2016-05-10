@@ -9,53 +9,57 @@ import javax.persistence.EntityManager;
 import java.sql.Date;
 import java.util.List;
 
-/**
- * Created by JoséLuis on 02/04/2016.
- */
 public class Bodegas implements IBodega {
 
     @Transactional
-    public List<Bodega> getBodegas() {
+    public List<Bodega> getBodegas(){
         return JPA.em().createNamedQuery("Bodega.findAll", Bodega.class ).getResultList();
     }
-
+    
     @Transactional
-    public Bodega getBodegaById(long id) {
+    public Bodega getBodegaById(Long id){
         return JPA.em().createNamedQuery("Bodega.findById", Bodega.class ).setParameter("id",id).getSingleResult();
     }
+    
 
     @Transactional
-    public Bodega save(Bodega bodega) {
+    public Bodega save(Bodega bodega){
         EntityManager em = JPA.em();
-
-        Bodega bodegaTmp = new Bodega();
+        Bodega bodegaTmp;
+        bodegaTmp = new Bodega();
         bodegaTmp.setNombre(bodega.getNombre());
         em.persist(bodegaTmp);
-
         return bodegaTmp;
+    
     }
 
     @Transactional
-    public Bodega update(Bodega bodega) {
+    public Bodega update(Bodega bodega){
         EntityManager em = JPA.em();
         Bodega bodegaTmp;
         bodegaTmp = em.find(Bodega.class, bodega.getId());
         if(bodegaTmp == null){
-            //no encontrado
+            //Bodega no existe
             return null;
         }
         bodegaTmp.setNombre(bodega.getNombre());
-        bodegaTmp = em.merge(bodegaTmp);
-        return bodegaTmp;
+        bodega = em.merge(bodegaTmp);
+        return bodega;
+    
     }
 
     @Transactional
-    public Bodega delete(long id) {
+    public Bodega delete(Long id){
         EntityManager em = JPA.em();
-        Bodega bodegaTmp = em.find(Bodega.class, id);
+        Bodega bodegaTmp =  em.find(Bodega.class, id);
         if(bodegaTmp!=null) {
             em.remove(bodegaTmp);
         }
         return bodegaTmp;
+    
     }
+    
+
+
 }
+

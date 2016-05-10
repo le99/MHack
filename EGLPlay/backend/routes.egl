@@ -14,10 +14,9 @@ GET         [%=resource.url%]            controllers.implementacion.[%=resource.
 	for(atribute in resource.atributes.select(a|a.isTypeOf(PKAtribute))){%]
 GET         [%=resource.url%]:[%=atribute.name.firstToLowerCase()%]            controllers.implementacion.[%=resource.name.firstToUpperCase()%]sController.get[%=resource.name.firstToUpperCase()%]ById([%=atribute.name.firstToLowerCase()%] : [%=atribute.type%])
 DELETE      [%=resource.url%]:[%=atribute.name.firstToLowerCase()%]            controllers.implementacion.[%=resource.name.firstToUpperCase()%]sController.delete([%=atribute.name.firstToLowerCase()%] : [%=atribute.type%])
-	[%}%]
 POST        [%=resource.url%]            controllers.implementacion.[%=resource.name.firstToUpperCase()%]sController.save()
-PUT         [%=resource.url%]            controllers.implementacion.[%=resource.name.firstToUpperCase()%]sController.update()
-
+PUT         [%=resource.url%]:[%=atribute.name.firstToLowerCase()%]             controllers.implementacion.[%=resource.name.firstToUpperCase()%]sController.update([%=atribute.name.firstToLowerCase()%] : [%=atribute.type%])
+	[%}%]
 [%
 	/*Imprime rutas por Referencias*/
 	for(rsrc in backend.resources){

@@ -1,3 +1,6 @@
+[%
+	var pkatribute = resource.atributes.select(a|a.isTypeOf(PKAtribute)).at(0);
+%]
 package controllers.implementacion;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -47,10 +50,11 @@ public class [%=resource.name.firstToUpperCase()%]sController extends Controller
     }
 
     @Transactional
-    public Result update(){
+    public Result update([%=pkatribute.type%] [%=pkatribute.name.firstToLowerCase()%]){
         JsonNode json = request().body().asJson();
         JsonNode respuesta = Json.parse("{\"errorCode\":\"1\",\"desCode\":\"Error en [%=resource.name.firstToLowerCase()%]s\"}");
         [%=resource.name.firstToUpperCase()%] [%=resource.name.firstToLowerCase()%] = Json.fromJson(json,[%=resource.name.firstToUpperCase()%].class);
+        [%=resource.name.firstToLowerCase()%].set[%=pkatribute.name.firstToUpperCase()%]([%=pkatribute.name.firstToLowerCase()%]);
         if([%=resource.name.firstToLowerCase()%]!=null){
             [%=resource.name.firstToLowerCase()%]= [%=resource.name.firstToLowerCase()%]s.update([%=resource.name.firstToLowerCase()%]);
             respuesta=Json.toJson([%=resource.name.firstToLowerCase()%]);

@@ -8,25 +8,22 @@ import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
 
-/**
- * Created by JoséLuis on 03/04/2016.
- */
 public class ProductosController extends Controller {
-
     private static IProducto productos = new Productos();
 
     @Transactional
-    public Result getProductos() {
+    public Result getProductos(){
         return ok(Json.toJson(productos.getProductos()));
     }
+
     @Transactional
-    public Result getProductoById(long id) {
+    public Result getProductoById(Long id){
         return ok(Json.toJson(productos.getProductoById(id)));
     }
+    
 
     @Transactional
-    public Result save() {
-
+    public Result save(){
         JsonNode json = request().body().asJson();
         JsonNode respuesta = Json.parse("{\"errorCode\":\"1\",\"desCode\":\"Error en productos\"}");
         Producto producto = Json.fromJson(json,Producto.class);
@@ -35,11 +32,11 @@ public class ProductosController extends Controller {
             respuesta=Json.toJson(producto);
         }
         return ok(Json.toJson(respuesta));
+    
     }
 
     @Transactional
-    public Result update(Long id) {
-
+    public Result update(Long id){
         JsonNode json = request().body().asJson();
         JsonNode respuesta = Json.parse("{\"errorCode\":\"1\",\"desCode\":\"Error en productos\"}");
         Producto producto = Json.fromJson(json,Producto.class);
@@ -48,19 +45,21 @@ public class ProductosController extends Controller {
             producto= productos.update(producto);
             respuesta=Json.toJson(producto);
         }
-        return ok(Json.toJson(respuesta));
+        return ok(respuesta);
+    
     }
 
     @Transactional
-    public Result delete(Long id) {
-
-        JsonNode respuesta = Json.parse("{\"errorCode\":\"1\",\"desCode\":\"Error en bodegas\"}");
+    public Result  delete(Long id){
+        JsonNode respuesta = Json.parse("{\"errorCode\":\"1\",\"desCode\":\"Error en productos\"}");
         Producto producto= productos.delete(id);
         if(producto!=null){
             respuesta=Json.toJson(producto);
         }
         return ok(respuesta);
+    
     }
+    
 
 
 

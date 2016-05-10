@@ -57,7 +57,7 @@
 	//Routes
 	var routes:Template:= TemplateFactory.load('backend/routes.egl');
 	routes.populate('backend', root.backend);
-	routes.generate('conf/routes2');
+	routes.generate('conf/routes');
 	
 	if(root.backend <> null){
 		for(resource in root.backend.resources){
