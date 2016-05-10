@@ -5,7 +5,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="backend" eType="#//Backend"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="angularApp" eType="#//AngularApp"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="HTMLApp" eType="#//HTMLApp"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="JQueryApp" eType="#//JQueryApp"
         containment="true"/>
   </eClassifiers>
@@ -19,24 +19,24 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="atributes" upperBound="-1"
         eType="#//Atribute" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AngularApp">
+  <eClassifiers xsi:type="ecore:EClass" name="HTMLApp">
     <eStructuralFeatures xsi:type="ecore:EReference" name="pages" upperBound="-1"
-        eType="#//AngularPage" containment="true"/>
+        eType="#//HTMLPage" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AngularPage">
+  <eClassifiers xsi:type="ecore:EClass" name="HTMLPage">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="route" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="resource" eType="#//Resource"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="controller" eType="#//AngularController"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="controller" eType="#//HTMLController"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="template" eType="#//AngularTemplate"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="template" eType="#//HTMLTemplate"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceDir" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AngularController">
+  <eClassifiers xsi:type="ecore:EClass" name="HTMLController">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fileName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AngularTemplate">
+  <eClassifiers xsi:type="ecore:EClass" name="HTMLTemplate">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fileName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Type">

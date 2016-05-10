@@ -8,36 +8,36 @@
 	//----------------------------------------
 	//Angular App
 	
-	if(root.angularApp <> null){
+	if(root.HTMLApp <> null){
 		var appjs:Template:= TemplateFactory.load('angularFront/appjs.egl');
-		appjs.populate('app', root.angularApp);
+		appjs.populate('app', root.HTMLApp);
 		appjs.generate('./public/angular_app/app.js');
 		
 		var indexT:Template:= TemplateFactory.load('angularFront/index.egl');
-		indexT.populate('app', root.angularApp);
+		indexT.populate('app', root.HTMLApp);
 		indexT.generate('./public/angular_app/index.html');
 		
 		//navigation
 		var navigationDirective:Template:= TemplateFactory.load('angularFront/common/navigation/navigationDirective.egl');
-		//navigationDirective.populate('app', root.angularApp);
+		//navigationDirective.populate('app', root.HTMLApp);
 		navigationDirective.generate('./public/angular_app/common/navigation/navigation.directive.js');
 		
 		var navigationController:Template:= TemplateFactory.load('angularFront/common/navigation/navigationController.egl');
-		//navigationController.populate('app', root.angularApp);
+		//navigationController.populate('app', root.HTMLApp);
 		navigationController.generate('./public/angular_app/common/navigation/navigation.controller.js');
 		
 		var navigationTemplate:Template:= TemplateFactory.load('angularFront/common/navigation/navigationTemplate.egl');
-		navigationTemplate.populate('app', root.angularApp);
+		navigationTemplate.populate('app', root.HTMLApp);
 		navigationTemplate.generate('./public/angular_app/common/navigation/navigation.template.html');
 		
 		
 		//services
 		var invDataServices:Template:= TemplateFactory.load('angularFront/common/services/invDataServices.egl');
-		invDataServices.populate('app', root.angularApp);
+		invDataServices.populate('app', root.HTMLApp);
 		invDataServices.generate('./public/angular_app/common/services/invData.services.js');
 		
 		
-		for(page in root.angularApp.pages){
+		for(page in root.HTMLApp.pages){
 			
 			var pageController:Template:= TemplateFactory.load('angularFront/controllerJs.egl');
 			pageController.populate('page', page);

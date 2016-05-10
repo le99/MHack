@@ -12,7 +12,7 @@ rule SQL2Play
 		
 		db.setResourceRealationships(resources);
 		
-		app.setAngularFront();
+		app.setHTMLFront();
 		
 	}
 	
@@ -96,22 +96,22 @@ operation sql!Database setResourceRealationships(resources){
 }
 
 
-operation play!App setAngularFront(){
-	self.angularApp = new play!AngularApp();
+operation play!App setHTMLFront(){
+	self.HTMLApp = new play!HTMLApp();
 	for(r in self.backend.resources){
-		var page = new play!AngularPage();
+		var page = new play!HTMLPage();
 		page.route = '/' + r.name;
 		page.sourceDir = r.name.firstToLowerCase;
 		page.resource = r;
-		var controller = new play!AngularController();
+		var controller = new play!HTMLController();
 		controller.name = r.name.firstToLowerCase + "Ctrl";
 		controller.fileName = r.name.firstToLowerCase + '.controller.js';
 		page.controller = controller;
 		
-		var template = new play!AngularTemplate();
+		var template = new play!HTMLTemplate();
 		template.fileName = r.name.firstToLowerCase + '.view.html';
 		page.template = template;
-		self.angularApp.pages.add(page);	
+		self.HTMLApp.pages.add(page);	
 	}
 }
 
