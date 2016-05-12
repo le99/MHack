@@ -64,7 +64,7 @@ for(page in app.pages){
       <div class="col-md-6 starter-template">
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h4>  Boton Borrar </h4>
+              <h4>   </h4>
             </div>
             <div class="panel-body">
               <form class="form-horizontal">
@@ -100,22 +100,20 @@ for(page in app.pages){
 			
 			[%
 				for(atribute in page.resource.atributes.select(a | a.isTypeOf(play!RefAtribute))) {
+			    var r = atribute.ref;
 			%]                  
 				<div class="form-group">
-				  <label for="inputBodegaSaldo" class="col-sm-2 control-label">[%= atribute.name %]</label>
-				  <div class="col-sm-10">
-				      [%if(atribute.name=='id') {%]
-				      <input type="text" class="form-control" id="[%= atribute.name %]" placeholder="[%= atribute.name %]" value="" disabled>
-				      [%} else { %]
-				      <input type="text" class="form-control" id="[%= atribute.name %]" placeholder="[%= atribute.name %]" value=""> 
-				      [%}%]
-				  </div>
-				</div>
+                  <label for="inputNombre" class="col-sm-2 control-label">[%= atribute.name %] </label>
+                  <div class="col-sm-10">
+						<select id="[%= atribute.name %]">
+						</select>
+                  </div>
+                </div>
 			[% } %]             		
 				<div class="form-group">
 				 <div class="col-sm-offset-2 col-sm-10">
-				<button ng-show="!vm.data.create" type="button" class="btn btn-primary" onclick="crear()">Crear</button>
-				<button ng-show="!vm.data.create" type="button" class="btn btn-primary" onclick="editar()">Editar</button>
+				<button ng-show="!vm.data.create" id="btnCrear" name="btnCrear" type="button" class="btn btn-primary" onclick="crear()">Crear</button>
+				<button ng-show="!vm.data.create" id="btnEditar" name="btnEditar" type="button" class="btn btn-primary" onclick="editar()" disabled >Editar</button>
 				 </div>
              </div>
            </form>

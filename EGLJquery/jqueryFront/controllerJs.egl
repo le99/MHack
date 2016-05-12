@@ -3,6 +3,18 @@ $(document).ready(function(){
      'Cache-Control': 'no-cache'
   }});
   
+  listarCombo = function () {
+  [%for(atribute in page.resource.atributes.select(a | a.isTypeOf(play!RefAtribute))) {
+   var r = atribute.ref;%]
+   $.getJSON("http://localhost:9000/api/[%=r.name%]/", function(data){
+   			 $("<option value='0'>Seleccionar</option>").appendTo("#[%=atribute.name%]");
+   			 for(i=0 ; i< data.length ;i++  ) {
+   			 $("<option value="+data[i].id+">"+data[i].id+"</option>").appendTo("#[%=atribute.name%]");
+   			 }
+    });
+  [%}%]
+  }
+  
   //Metodo pintar
   listar = function(){
         $.getJSON("http://localhost:9000/api/[%= page.resource.name%]/", function(data){
@@ -10,10 +22,10 @@ $(document).ready(function(){
              var html ="<table class='table'><thead>" ;
              html+="<tr>";
              [%
-              var ncolum = page.resource.atributes.size().println();
+              var ncolum = page.resource.atributes.size();
 		      var col =1;
 		      for(atribute in page.resource.atributes) {
-		      atribute.name.println();
+		 
 			 %] 
                 html+= "<th>[%= atribute.name %]</th>"; 
              [% }%]
@@ -82,7 +94,8 @@ $(document).ready(function(){
          [% for(atribute in page.resource.atributes){%] 
           $("#[%=atribute.name%]").val(data.[%=atribute.name%]);
           [%}%]
-       
+           $("#btnCrear").attr('disabled','disabled'); 
+           $("#btnEditar").removeAttr('disabled'); 
 		});
     };
     
@@ -103,10 +116,12 @@ $(document).ready(function(){
 				[% for(atribute in page.resource.atributes) { %]
 				$("#[%=atribute.name%]").val('');
 				[%}%]
+				 $("#btnCrear").removeAttr('disabled'); 
+				 $("#btnEditar").attr('disabled','disabled'); 
                 listar() ;
                }});
-		alert ("editar !!! ");
     }
   listar();
+  listarCombo ();
   //alert ("responde");
 });

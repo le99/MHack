@@ -1,0 +1,108 @@
+<navigation></navigation>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4>SaldoBodega</h4>
+        </div>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>              
+                <th>id</th>              
+                <th>cantidad</th>              
+                <th>idProducto</th>              
+                <th>idBodega</th>                
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="dato in vm.data.lista">              
+                <td>{{ dato.id }}</td>              
+                <td>{{ dato.cantidad }}</td>              
+                <td>{{ dato.idProducto }}</td>              
+                <td>{{ dato.idBodega }}</td>                
+                <td>
+                  <div class="btn-group">
+                    <button class="btn btn-primary" ng-click="vm.editSaldoBodega(dato)">
+                      <span class="glyphicon glyphicon-edit"></span>
+                    </button>
+                    <button class="btn btn-danger" ng-click="vm.deleteSaldoBodega(dato.id)">
+                      <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 starter-template">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+        	  <button class="btn btn-danger pull-right" ng-click="vm.addSaldoBodega()">
+            <span class="glyphicon glyphicon-remove"></span> Borrar cambios
+          </button>
+          <h4>Detalles SaldoBodega</h4>
+        </div>
+        <div class="panel-body">
+          <form class="form-horizontal">
+         
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-2 control-label">Id</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputEmail3" placeholder="Id" ng-model="vm.data.detalle.id" disabled>
+              </div>
+            </div>
+            
+             
+            <div class="form-group">
+              <label for="cantidad" class="col-sm-2 control-label">cantidad</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="cantidad" ng-model="vm.data.detalle.cantidad">
+              </div>
+            </div>
+   
+            
+            <div class="form-group">
+              <label for="idProducto" class="col-sm-2 control-label">idProducto</label>
+              <div class="col-sm-10">
+                <select name="mySelect" id="mySelect" class="form-control"
+                      ng-options="option.id for option in vm.data.idProductos track by option.id"
+                      ng-model="vm.data.selectedIdProductoOption">
+                </select>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="idBodega" class="col-sm-2 control-label">idBodega</label>
+              <div class="col-sm-10">
+                <select name="mySelect" id="mySelect" class="form-control"
+                      ng-options="option.id for option in vm.data.idBodegas track by option.id"
+                      ng-model="vm.data.selectedIdBodegaOption">
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button ng-show="!vm.data.create" type="button" class="btn btn-primary" ng-click="vm.updateSaldoBodega()">Guardar</button>
+                <button ng-show="vm.data.create" type="button" class="btn btn-success" ng-click="vm.crearSaldoBodega()">Crear</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+
+</div><!-- /.container -->

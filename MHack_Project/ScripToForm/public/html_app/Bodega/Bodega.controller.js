@@ -3,6 +3,9 @@ $(document).ready(function(){
      'Cache-Control': 'no-cache'
   }});
   
+  listarCombo = function () {
+  }
+  
   //Metodo pintar
   listar = function(){
         $.getJSON("http://localhost:9000/api/Bodega/", function(data){
@@ -76,7 +79,8 @@ $(document).ready(function(){
           $("#id").val(data.id);
  
           $("#nombre").val(data.nombre);
-       
+           $("#btnCrear").attr('disabled','disabled'); 
+           $("#btnEditar").removeAttr('disabled'); 
 		});
     };
     
@@ -95,10 +99,12 @@ $(document).ready(function(){
                type:'PUT',success: function(result){
 				$("#id").val('');
 				$("#nombre").val('');
+				 $("#btnCrear").removeAttr('disabled'); 
+				 $("#btnEditar").attr('disabled','disabled'); 
                 listar() ;
                }});
-		alert ("editar !!! ");
     }
   listar();
+  listarCombo ();
   //alert ("responde");
 });

@@ -3,6 +3,21 @@ $(document).ready(function(){
      'Cache-Control': 'no-cache'
   }});
   
+  listarCombo = function () {
+   $.getJSON("http://localhost:9000/api/Producto/", function(data){
+   			 $("<option value='0'>Seleccionar</option>").appendTo("#idProducto");
+   			 for(i=0 ; i< data.length ;i++  ) {
+   			 $("<option value="+data[i].id+">"+data[i].id+"</option>").appendTo("#idProducto");
+   			 }
+    });
+   $.getJSON("http://localhost:9000/api/Bodega/", function(data){
+   			 $("<option value='0'>Seleccionar</option>").appendTo("#idBodega");
+   			 for(i=0 ; i< data.length ;i++  ) {
+   			 $("<option value="+data[i].id+">"+data[i].id+"</option>").appendTo("#idBodega");
+   			 }
+    });
+  }
+  
   //Metodo pintar
   listar = function(){
         $.getJSON("http://localhost:9000/api/SaldoBodega/", function(data){
@@ -90,7 +105,8 @@ $(document).ready(function(){
           $("#idProducto").val(data.idProducto);
  
           $("#idBodega").val(data.idBodega);
-       
+           $("#btnCrear").attr('disabled','disabled'); 
+           $("#btnEditar").removeAttr('disabled'); 
 		});
     };
     
@@ -113,10 +129,12 @@ $(document).ready(function(){
 				$("#cantidad").val('');
 				$("#idProducto").val('');
 				$("#idBodega").val('');
+				 $("#btnCrear").removeAttr('disabled'); 
+				 $("#btnEditar").attr('disabled','disabled'); 
                 listar() ;
                }});
-		alert ("editar !!! ");
     }
   listar();
+  listarCombo ();
   //alert ("responde");
 });
